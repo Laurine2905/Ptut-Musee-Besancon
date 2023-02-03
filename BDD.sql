@@ -49,9 +49,11 @@ CREATE TABLE OBJET
   Pays  varchar(1000) NULL,
   Objet_Description  varchar(1000) NULL,
   Nb_Possession integer NULL,
+  categorie_id int,
+  salle_id int,
   CONSTRAINT PK_Objet PRIMARY KEY (Objet_id),
-  CONSTRAINT PK_CategorieObjet FOREIGN KEY (pk_categorie) REFERENCES CATEGORIE(categorie_id) ON UPDATE RESTRICT ON DELETE RESTRICT,
-  CONSTRAINT FK_Object_Salle FOREIGN KEY (Salle_id) REFERENCES SALLE (Salle_id) ON UPDATE RESTRICT ON DELETE RESTRICT
+  CONSTRAINT FK_CategorieObjet FOREIGN KEY (categorie_id) REFERENCES CATEGORIE(categorie_id) ON UPDATE RESTRICT ON DELETE RESTRICT,
+  CONSTRAINT FK_Object_Salle FOREIGN KEY (salle_id) REFERENCES SALLE (Salle_id) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 
 -- Script d'ajout de données
